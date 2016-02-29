@@ -3,7 +3,6 @@ package playjsonsnake
 import play.api.libs.json._
 
 object SnakeCaseJson {
-
   def  reads[T](fjs:   Reads[T]):   Reads[T] = Reads.of[JsObject] map camelCaseFields andThen fjs
   def writes[T](tjs: OWrites[T]): OWrites[T] = OWrites[T](x => snakeCaseFields(tjs writes x))
   def format[T](f:   OFormat[T]): OFormat[T] = OFormat[T](reads(f), writes(f))
@@ -19,7 +18,7 @@ object SnakeCaseJson {
 
   private def snakeCase(s: String) =
     s.foldLeft(new StringBuilder) {
-      case (s, c) if Character.isUpperCase(c) && !s.isEmpty => s append "_" append (Character toLowerCase c)
+      case (s, c) if Character.isUpperCase(c) && s.nonEmpty => s append "_" append (Character toLowerCase c)
       case (s, c)                                           => s append c
     }.toString
 }

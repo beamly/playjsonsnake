@@ -1,12 +1,12 @@
 package playjsonsnake
 
 import org.specs2.mutable.Specification
-import play.api.libs.json.Json
+import play.api.libs.json.{ OFormat, Json }
 
 class SnakeCaseJsonSpec extends Specification {
 
   val testCase = TestCase("lowercase", "camelCase", "PascalCase", "camelCaseWithSeveralHumps", "kebab-case")
-  val testJson =
+  val testJson = Json parse
     """
       |{
       |  "lowercase": "lowercase",
@@ -15,17 +15,17 @@ class SnakeCaseJsonSpec extends Specification {
       |  "camel_case_with_several_humps": "camelCaseWithSeveralHumps",
       |  "kebab-case": "kebab-case"
       |}
-    """.stripMargin.replaceAll("(\\s|\\n)", "")
+    """.stripMargin
 
-  implicit val snakeCaseFormat = SnakeCaseJson.format(Json.format[TestCase])
+  implicit val snakeCaseFormat: OFormat[TestCase] = SnakeCaseJson.format(Json.format[TestCase])
 
   "SnakeCaseJson format" should {
     "convert camel case to snake case when writing Json" in {
       val json = Json.toJson(testCase)
-      Json.stringify(json) should_== testJson
+      json should_=== testJson
     }
     "convert snake case to camel case when reading Json" in {
-      val test = Json.parse(testJson).as[TestCase]
+      val test = testJson.as[TestCase]
       test must_=== testCase
     }
   }
