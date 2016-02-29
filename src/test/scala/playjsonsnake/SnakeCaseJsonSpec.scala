@@ -1,7 +1,7 @@
 package playjsonsnake
 
 import org.specs2.mutable.Specification
-import play.api.libs.json.Json
+import play.api.libs.json.{ OFormat, Json }
 
 class SnakeCaseJsonSpec extends Specification {
 
@@ -17,7 +17,7 @@ class SnakeCaseJsonSpec extends Specification {
       |}
     """.stripMargin.replaceAll("(\\s|\\n)", "")
 
-  implicit val snakeCaseFormat = SnakeCaseJson.format(Json.format[TestCase])
+  implicit val snakeCaseFormat: OFormat[TestCase] = SnakeCaseJson.format(Json.format[TestCase])
 
   "SnakeCaseJson format" should {
     "convert camel case to snake case when writing Json" in {
