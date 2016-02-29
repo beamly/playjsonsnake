@@ -47,8 +47,7 @@ scala> Json.fromJson[Foo](Json parse """{ "i" : 123, "abc_def_ghi" : 456 }""")
 res1: play.api.libs.json.JsResult[Foo] = JsSuccess(Foo(123,456),)
 ```
 
-There are also wrappers for `Reads` and `OWrites`, in the form of `SnakeCaseJson.reads` and `SnakeCaseJson.
-writes`.
+There are also wrappers for `Reads` and `OWrites`, in the form of `SnakeCaseJson.reads` and `SnakeCaseJson.writes`.
 
 ## Dependencies
 
