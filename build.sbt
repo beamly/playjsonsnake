@@ -3,7 +3,7 @@ lazy val playjsonsnake = project in file(".")
 organization := "com.beamly"
 name := "playjsonsnake"
 licenses := Seq(("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0")))
-description := "Play-Json snake case to camel case field conversions"
+description := "A micro-library that adds snake case support to play-json"
 homepage := Some(url("https://github.com/beamly/playjsonsnake"))
 startYear := Some(2016)
 
@@ -31,8 +31,6 @@ libraryDependencies += "org.specs2"        %% "specs2-core" % "3.6.5" % "test"
 parallelExecution in Test := true
 fork in Test := false
 
-bintrayOrganization := Some("beamly")
-
 pomExtra := pomExtra.value ++ {
   <developers>
     <developer>
@@ -49,6 +47,7 @@ pomExtra := pomExtra.value ++ {
     </scm>
 }
 
+bintrayOrganization in ThisBuild := Some("beamly")
 bintrayReleaseOnPublish in ThisBuild := false
 
 releaseCrossBuild := true
