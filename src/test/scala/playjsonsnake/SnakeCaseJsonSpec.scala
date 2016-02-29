@@ -22,7 +22,7 @@ class SnakeCaseJsonSpec extends Specification {
   "SnakeCaseJson format" should {
     "convert camel case to snake case when writing Json" in {
       val json = Json.toJson(testCase)
-      Json.stringify(json) should_== testJson
+      Json.stringify(json) should_=== testJson
     }
     "convert snake case to camel case when reading Json" in {
       val test = Json.parse(testJson).as[TestCase]
