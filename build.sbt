@@ -25,8 +25,11 @@ scalacOptions  += "-Ywarn-value-discard"
 maxErrors := 5
 triggeredMessage := Watched.clearWhenTriggered
 
-libraryDependencies += "com.typesafe.play" %% "play-json"   % "2.4.6"
-libraryDependencies += "org.specs2"        %% "specs2-core" % "3.6.5" % "test"
+libraryDependencies += "org.typelevel"     %% "macro-compat"   % "1.1.1"
+libraryDependencies += "com.typesafe.play" %% "play-json"      % "2.4.6"
+libraryDependencies += "org.scalamacros"   %% "paradise"       % "2.1.0"            % "plugin->default(compile)" cross CrossVersion.full
+libraryDependencies += "org.scala-lang"     % "scala-compiler" % scalaVersion.value % "provided"
+libraryDependencies += "org.specs2"        %% "specs2-core"    % "3.6.5"            % "test"
 
 parallelExecution in Test := true
 fork in Test := false

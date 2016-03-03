@@ -17,7 +17,7 @@ class SnakeCaseJsonSpec extends Specification {
       |}
     """.stripMargin
 
-  implicit val snakeCaseFormat: OFormat[TestCase] = SnakeCaseJson.format(Json.format[TestCase])
+  implicit val snakeCaseFormat: OFormat[TestCase] = SnakeCaseJson.format[TestCase]
 
   "SnakeCaseJson format" should {
     "convert camel case to snake case when writing Json" in {
