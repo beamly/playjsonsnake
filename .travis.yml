@@ -1,0 +1,16 @@
+sudo: false
+language: scala
+scala:
+  - 2.11.7
+  - 2.10.6
+jdk: oraclejdk8
+script: sbt -J-Xmx3784m -batch -no-colors ++$TRAVIS_SCALA_VERSION clean test |& egrep -v '^\[info\] Resolving '
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
+before_cache:
+  - find "$HOME/.sbt" -name "*.lock" -print -delete
+  - find "$HOME/.ivy2" -name "ivydata-*.properties" -print -delete
