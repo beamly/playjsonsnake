@@ -26,7 +26,7 @@ maxErrors := 5
 triggeredMessage := Watched.clearWhenTriggered
 
 libraryDependencies += "org.typelevel"     %% "macro-compat"   % "1.1.1"
-libraryDependencies += "com.typesafe.play" %% "play-json"      % "2.4.6"
+libraryDependencies += "com.typesafe.play" %% "play-json"      % "2.5.3"
 libraryDependencies += "org.scalamacros"   %% "paradise"       % "2.1.0"            % "plugin->default(compile)" cross CrossVersion.full
 libraryDependencies += "org.scala-lang"     % "scala-compiler" % scalaVersion.value % "provided"
 libraryDependencies += "org.specs2"        %% "specs2-core"    % "3.6.5"            % "test"
