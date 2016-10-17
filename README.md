@@ -52,7 +52,7 @@ There are also wrappers for `Reads` and `OWrites`, in the form of `SnakeCaseJson
 ## Dependencies
 
 * Scala 2.11.x or 2.10.x
-* play-json 2.4.x
+* play-json 2.5.x
 
 ## Licence
 

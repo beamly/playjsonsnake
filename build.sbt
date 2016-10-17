@@ -7,7 +7,7 @@ description := "A micro-library that adds snake case support to play-json"
 homepage := Some(url("https://github.com/beamly/playjsonsnake"))
 startYear := Some(2016)
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 crossScalaVersions := Seq("2.11.7", "2.10.6")
 
 scalacOptions ++= Seq("-encoding", "utf8")
